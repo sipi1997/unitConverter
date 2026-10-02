@@ -15,6 +15,7 @@ h1{
     color: #fff;
     font-size: 28px;
     line-height: 38px;
+    font-weight: 800;
 }
 
 h2{
@@ -46,7 +47,14 @@ button{
     border: none;
 }
 button:hover{
-    box-shadow: 0px 3px 8px 0px rgb(29, 24, 49);
+    box-shadow: 0px 2px 8px 0px rgb(29, 24, 49);
+}
+
+#mode-btn{
+    position: fixed;
+    right: 0;
+    top: 30%;
+    background-color: #1F2937;
 }
 
 .conv-container{
@@ -73,10 +81,16 @@ button:hover{
     text-align: center;
 }
 
+.dark-mode #mode-btn{background-color: #fff;}
+
+.dark-mode #mode-btn:hover{
+    box-shadow: 0px 2px 8px 0px rgb(160, 140, 238)
+}
+
 .dark-mode h2{color: #CCC1FF;}
 
-.dark-mode .units-container{background-color: #1F2937}
+.dark-mode .units-container{background-color: #1F2937;}
 
-.dark-mode .unit-container{background-color: #273549}
+.dark-mode .unit-container{background-color: #273549;color: #fff;}
 
 

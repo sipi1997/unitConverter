@@ -1,10 +1,26 @@
 let inputConv = document.getElementById('conv-input')
 let submit = document.getElementById('input-btn')
 submit.innerText = 'Convert'
-//adesso torniamo qui e mettiamo un ascolto sul value
-
+//aggiungo il controllo sul light/dark mode
+let main = document.querySelector('main')
+let modeBtn = document.getElementById('mode-btn')
+modeBtn.addEventListener("click", function(){
+    if(main.classList.contains('dark-mode')){
+        main.classList.remove('dark-mode')
+        modeBtn.textContent = '💡✨'
+    } else{
+        main.classList.add('dark-mode')
+        modeBtn.textContent = '💡❌'
+    }
+})
+//aggiungo il controllo sullo 0
 submit.addEventListener("click", function(){
-    convertUnits(inputConv.value)
+    let valoreInput = inputConv.value
+    if (valoreInput == 0){
+        alert('Please type a value')
+    } else {
+    convertUnits(valoreInput)
+    }
 })
 
 let units = {
