@@ -18,14 +18,14 @@ let units = {
                     unit1: 'meters',
                     unit2: 'feet',
                     metric: 3.281
-                }],
-                unit: [{
+                },
+                {
                     name: 'Volume (Liters/Gallons)',
                     unit1: 'liters',
                     unit2: 'gallons',
                     metric: 0.264
-                }],
-                unit: [{
+                },
+                {
                     name: 'Mass (Kilograms/Pounds)',
                     unit1: 'kilos',
                     unit2: 'pounds',
@@ -34,35 +34,17 @@ let units = {
 }
 
 function convertUnits(value) {
-    for (let i = 0; i < units.unit; i++){
-        let h2DOM = document.createElement('h2')
-        let pDOM = document.createElement('p')
-        let unitContainer = document.createElement('div')
-        unitContainer.classList.add('unit-container')
-        
+    let unitDOM = ``
+    for (let i = 0; i < units.unit.length; i++){
         let result1 = (value * units.unit[i].metric).toFixed(3)
         let result2 = (value / units.unit[i].metric).toFixed(3)
 
-        h2DOM.textContent = units.unit[i].name
-        pDOM = `<p>${value} ${units.unit[i].unit1} = ${result1} | ${value} ${units.unit[i].unit2} = ${result2}</p>`
-        unitContainer = h2DOM + pDOM 
+        let h2DOM= `<h2>${units.unit[i].name}</h2>`
+        let pDOM = `<p>${value} ${units.unit[i].unit1} = ${result1} | ${value} ${units.unit[i].unit2} = ${result2}</p>`
+        unitDOM += `<div class="unit-container">${h2DOM}${pDOM}</div>`
     }
-
-
-
-    let meterResult = (value * 3.281).toFixed(3)
-    let feetResult = (value / 3.281).toFixed(3)
-    let literResult = (value * 0.264).toFixed(3)
-    let gallonResult = (value / 0.264).toFixed(3)
-    let kilogramResult = (value * 2.204).toFixed(3)
-    let poundResult = (value / 2.204).toFixed(3)
-    console.log(meterResult)
-    console.log(feetResult)
-    console.log(literResult)
-    console.log(gallonResult)
-    console.log(kilogramResult)
-    console.log(poundResult)
-
+    let container = document.querySelector('.units-container')
+    container.innerHTML = unitDOM
 }
 /*
 mi piacerebbe mettere la metrica all'interno di una variabile nell'oggetto. 
