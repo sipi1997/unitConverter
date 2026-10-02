@@ -2,8 +2,81 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: all .2s ease-in-out;
 }
 
 body {
     font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 14px;
 }
+
+h1{
+    color: #fff;
+    font-size: 28px;
+    line-height: 38px;
+}
+
+h2{
+    color: #5A537B;
+    font-size: 20px;
+}
+
+input{
+    border:1px solid #fff;
+    color: #fff; 
+    background-color: transparent;
+    height: 80px;
+    width: 100px;
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+}
+
+input,button{
+    border-radius: 5px;
+}
+
+button{
+    background-color:#fff;
+    color:#000;
+    padding: 8px 20px;
+    text-align: center;
+    display: block;
+    border: none;
+}
+button:hover{
+    box-shadow: 0px 3px 8px 0px rgb(29, 24, 49);
+}
+
+.conv-container{
+    height: 30%;
+    background-color: #6943ff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.units-container{    
+    height: 70%;
+    background-color: #F4F4F4;
+    color: #000;
+    padding: 5%;
+}
+
+.unit-container{
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.dark-mode h2{color: #CCC1FF;}
+
+.dark-mode .units-container{background-color: #1F2937}
+
+.dark-mode .unit-container{background-color: #273549}
+
+

@@ -1,15 +1,10 @@
-
-
-
-// bisogna creare la funzione che calcola al click del bottone
-// seleziona intanto gli elementi x questo
-
 let inputConv = document.getElementById('conv-input')
 let submit = document.getElementById('input-btn')
 submit.innerText = 'Convert'
+//adesso torniamo qui e mettiamo un ascolto sul value
 
 submit.addEventListener("click", function(){
-    convertUnits(20)
+    convertUnits(inputConv.value)
 })
 
 let units = {
@@ -33,23 +28,16 @@ let units = {
                 }]
 }
 
-function convertUnits(value) {
+function convertUnits(inputValue) {
     let unitDOM = ``
     for (let i = 0; i < units.unit.length; i++){
-        let result1 = (value * units.unit[i].metric).toFixed(3)
-        let result2 = (value / units.unit[i].metric).toFixed(3)
+        let result1 = (inputValue * units.unit[i].metric).toFixed(3)
+        let result2 = (inputValue / units.unit[i].metric).toFixed(3)
 
         let h2DOM= `<h2>${units.unit[i].name}</h2>`
-        let pDOM = `<p>${value} ${units.unit[i].unit1} = ${result1} | ${value} ${units.unit[i].unit2} = ${result2}</p>`
+        let pDOM = `<p>${inputValue} ${units.unit[i].unit1} = ${result1} | ${inputValue} ${units.unit[i].unit2} = ${result2}</p>`
         unitDOM += `<div class="unit-container">${h2DOM}${pDOM}</div>`
     }
     let container = document.querySelector('.units-container')
     container.innerHTML = unitDOM
 }
-/*
-mi piacerebbe mettere la metrica all'interno di una variabile nell'oggetto. 
-Essendo che mettere "* 3.281" non è possibile perché trasformerebbe tutto in una stringa, 
-dovrei mettere {value} * {units.unit[n].metric} e costruirmi così il <p>
-Poi fare un ciclo su units.unit e dire che per ognuno di questi mi devi popolare un elemento p del dom che creo
-Alla fine del ciclo iniettare tutto
-*/
